@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="col-md-5 col-md-offset-2">
+        <div class="row">
+            <h4>Your Long Url Is: </h4>
+            <a target="_blank" [href]= "longUrl">{{longUrl}}</a>
+        </div>
+        <div class="row">
+            <h4>Your Short Url Is: </h4>
+            <a target="_blank" [href]="shortUrl">{{shortUrlToShow}}</a>
+        </div>
+    </div>
+    <div class ="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Total Clicks</h3>
+            </div>
+            <div class="panel-body">
+                {{ totalClicks }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- time line chart-->
+<div class = "row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Click for the past:
+                <a (click)="getTime('hour')">hour</a>
+                <a (click)="getTime('day')">day</a>
+                <a (click)="getTime('month')">month</a>
+            </div>
+            <div class="panel-body">
+                <canvas baseChart width="400" height="400"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [chartType]="lineChartType"></canvas>    <!--[legend]="lineChartLegend"-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of time line chart-->
+
+<!-- referer and countryOrRegion chart-->
+<div class = "row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Referer
+            </div>
+            <div class="panel-body">
+                <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"></canvas>
+            </div>
+        </div>
+    </div>
+        
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Country or Region
+            </div>
+            <div class="panel-body">
+                <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"></canvas>             
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of referer and countryOrRegion chart-->
+
+<!-- platform and browser chart-->
+<div class = "row">
+        <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Platform
+            </div>
+            <div class="panel-body">
+                <canvas baseChart
+                [data]="polarAreaChartData"
+                [labels]="polarAreaChartLabels"
+                [chartType]="polarAreaChartType"></canvas>     
+
+            </div>
+        </div>
+    </div>
+        
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Browser
+            </div>
+            <div class="panel-body">
+                <canvas baseChart
+                [data]="radarChartData"
+                [labels]="radarChartLabels"
+                [chartType]="weiwei"></canvas>   
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- end of platform and browser chart-->
